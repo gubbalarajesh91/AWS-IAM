@@ -1,0 +1,33 @@
+IAM for security topic
+IAM --> Identity access management
+Authentication --> you should prove you belong to the system
+Authorization --> you should prove you belong to that particular resource
+
+There are list
+User---> Usually a human
+Group---> Team or group of team like developer, admins, etc. group represents similar roles and responsibilities
+Permissions---> What a user/group can do
+    what action we can perform on which resource
+
+identity = user or group = entity
+
+resource/services(nouns)= EC2, S3, Route53, RDS, etc..
+
+Actions = What you can do on that resource
+
+CURD----> Create update Read Delete 
+Read will not create damage
+
+AWS IAM is almost same as general IAM and components are
+-Users
+-Groups
+-Policy
+-Roles
+
+1. Create user
+
+Root User---> who created AWS account. It is unique in all AWS accounts
+we get a seperate signin link
+
+https://joindevops.signin.aws.amazon.com/console
+
