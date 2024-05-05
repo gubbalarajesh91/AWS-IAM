@@ -224,6 +224,11 @@ tags:
         condition ---> Only DBAdmin cabn do this operation
         attach to DBAdmin group
 
+4. Test
+  1. login with joindevops.com and Test
+    1. He can stop Dev DB
+    2. He cannot stop PRod DB 
+
 
 
 
