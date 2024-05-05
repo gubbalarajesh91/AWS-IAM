@@ -37,3 +37,8 @@ In PERMISSONS OPTIONS
     -Add user to group
     -Copy Permissions
     -Attach policies directly
+
+Read only access for Audit team 
+
+Policy is a json structure
+ https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
