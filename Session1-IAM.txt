@@ -31,3 +31,9 @@ we get a seperate signin link
 
 https://joindevops.signin.aws.amazon.com/console
 
+default is no access to any resource
+IAM--->Users--><UserID(joindevops.com)--> Add Permissions
+In PERMISSONS OPTIONS
+    -Add user to group
+    -Copy Permissions
+    -Attach policies directly
