@@ -42,3 +42,129 @@ Read only access for Audit team
 
 Policy is a json structure
  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
+
+iam policy json structure
+ https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
+
+Grammar of the IAM JSON policy language
+ https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html
+
+
+Policy structure- EC2
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html
+ {
+"Version": "2012-10-17",
+  "Statement":[{
+    "Effect":"Allow",
+    "Action": [
+       "ec2:AuthorizeSecurityGroupIngress",
+       "ec2:AuthorizeSecurityGroupEgress",
+       "ec2:RevokeSecurityGroupIngress",
+       "ec2:RevokeSecurityGroupEgress"],
+     "Resource": "arn:aws:ec2:region:account:security-group/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:Vpc": "arn:aws:ec2:region:account:vpc/vpc-11223344556677889"
+        }
+      }
+    }
+  ]
+ }
+
+
+
+IAM JSON policy elements: Statement
+# "Statement": [{...},{...},{...}]
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListAllMyBuckets",
+        "s3:GetBucketLocation"
+      ],
+      "Resource": "arn:aws:s3:::*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::BUCKET-NAME",
+      "Condition": {"StringLike": {"s3:prefix": [
+        "",
+        "home/",
+        "home/${aws:username}/"
+      ]}}
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::BUCKET-NAME/home/${aws:username}",
+        "arn:aws:s3:::BUCKET-NAME/home/${aws:username}/*"
+      ]
+    }
+  ]
+}
+
+
+IAM SERVICES ACTIONS
+https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html
+
+find S3--- https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html
+Actions, resources, and condition keys for Amazon S3
+
+
+IAM--> Policies---> Create policy
+
+Identity based policy:
+
+{
+"Version": "2012-10-17",
+  "Statement":[{
+    "Effect":"Allow",
+    "Action": [
+       "ec2:AuthorizeSecurityGroupIngress",
+       "ec2:AuthorizeSecurityGroupEgress",
+       "ec2:RevokeSecurityGroupIngress",
+       "ec2:RevokeSecurityGroupEgress"],
+     "Resource": "arn:aws:ec2:region:account:security-group/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:Vpc": "arn:aws:ec2:region:account:vpc/vpc-11223344556677889"
+        }
+      }
+    }
+  ]
+ }
+
+ Resource based policy- Prinicple line added - Group will not  workout and user base will work
+
+ {
+  "Id": "Policy1714912178228",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1714912171988",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::rajesh.online",
+      "Principal": {
+        "AWS": [
+          "arn:aws:s3:::rajesh.online"
+        ]
+      }
+    }
+  ]
+}
+
+
+aws cli v2
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+Command line
+aws s3 ls
+aws s3 ls rajesh.online #arn
