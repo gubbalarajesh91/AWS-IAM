@@ -178,3 +178,52 @@ Team leader asked to add file in bucket (arn:aws:s3:::rajesh.online)
 
 inline is one to one relation , policy attached to the entity user/group/role can't be viewable in policies section, it can't be allocated to others. 
 It will be deleted once the entity is deleted.
+
+
+---Attribute based policy----
+RBAC:
+Role based access control
+
+ABAC:
+Tags based
+
+Use case:
+Dev Tean and DBadmins team
+there are 2DB. One belong to DEV team and other belong to Prod team
+
+Create 2 teams/Groups
+1. Developement
+2. DBadmins
+
+Example:
+Joindevops.com--- Dev
+daws-78s-- DB admins
+
+2 DBS 
+
+1.DEV
+2.Prod
+
+tags:
+1. resourse tags
+    Dev DB-- Environment=dev
+    Prod DB-- Environment=Prod
+2. users tags
+    joindevops.com---> Team=Developement
+    daws-78s --> Team-DBadmin
+
+3. Policies
+    1. LimitdevRDS
+        rds: start, rds: stop, rds: list, rds: restart
+        resource ---> only dev instance
+        condition --> Only development can do this opertation
+        attach to Developement group
+    2. LimitProdRDS
+        rds: start, rds: list, rds: restart
+        resource---> only prod instance
+        condition ---> Only DBAdmin cabn do this operation
+        attach to DBAdmin group
+
+
+
+
