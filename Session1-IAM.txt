@@ -168,3 +168,13 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 Command line
 aws s3 ls
 aws s3 ls rajesh.online #arn
+
+
+INLINE POLICY
+There is a short-term task or emergency task
+If user needs to perform he should have that policy
+
+Team leader asked to add file in bucket (arn:aws:s3:::rajesh.online)
+
+inline is one to one relation , policy attached to the entity user/group/role can't be viewable in policies section, it can't be allocated to others. 
+It will be deleted once the entity is deleted.
