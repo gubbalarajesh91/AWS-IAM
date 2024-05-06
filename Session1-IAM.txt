@@ -230,5 +230,10 @@ tags:
     2. He cannot stop PRod DB 
 
 
+Authentication and authorizations also for services
+ROLE:
+
+
+
 
 
